@@ -28,8 +28,8 @@ def haversine(lon1, lat1, lon2, lat2):
 # Velocity map description
 class VelocityMap:
 
-    # Init velocity map: 3D array of (287, 79, 59)
-    # Time resolution: 300 seconds
+    # Init velocity map: 3D array of (288, 80, 60)
+    # Time resolution: 300 seconds (5 minutes interval)
     # Spacial resolution: 1 sq km
     def __init__(self, time_res, spacial_res):
         self.map = np.zeros((time_res, 8 * spacial_res, 6 * spacial_res))
@@ -200,8 +200,12 @@ def main():
         # Get data for specific vehicle id
         veh_data = database.get_data_by_id(vid_list[0])
 
-        # print veh_data[0]
-        # print veh_data[1]
+
+        # TODO: add loop through all vehicle IDs
+        # for x in xrange(len(vid_list)):
+        #    veh_data = database.get_data_by_id(vid_list[x])
+        #    av_vel_map = v_map.vel_map_calc(veh_data)
+
 
         av_vel_map = v_map.vel_map_calc(veh_data)
 
